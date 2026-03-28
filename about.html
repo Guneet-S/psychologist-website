@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Dr. Kiran Deep Kaur | Child Psychologist</title>
+  <meta name="description" content="Learn about Dr. Kiran Deep Kaur's background, qualifications, and approach to child and adolescent psychology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- About-specific styles ---- */
+
+    /* Bio section */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .bio-photo {
+      position: sticky;
+      top: 90px;
+    }
+    .bio-photo img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+      box-shadow: 0 16px 48px rgba(46,74,53,0.15);
+    }
+    .bio-photo-caption {
+      background: var(--green-light);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .bio-photo-caption strong { display: block; color: #2E4A35; font-size: 1rem; }
+    .bio-photo-caption span   { font-size: 0.85rem; color: var(--muted); }
+
+    .bio-text h2 { font-size: 2rem; margin-bottom: 20px; }
+    .bio-text p  { color: var(--muted); margin-bottom: 16px; font-size: 1.02rem; line-height: 1.8; }
+
+    .bio-highlight {
+      background: var(--lavender);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .bio-highlight p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #2E4A35;
+      margin: 0;
+    }
+
+    /* Credentials */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .credential-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 20px;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .credential-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .credential-item h4 { font-size: 0.9rem; color: #2E4A35; margin-bottom: 4px; }
+    .credential-item p  { font-size: 0.82rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-item {
+      text-align: center;
+      padding: 36px 24px;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .value-item .value-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .value-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .value-item p  { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* Approach */
+    .approach-list { list-style: none; margin-top: 24px; }
+    .approach-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .approach-list li:last-child { border-bottom: none; }
+    .approach-list .check {
+      min-width: 28px; height: 28px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #2E4A35;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .approach-list li p { margin: 0; }
+    .approach-list li strong { display: block; color: #2E4A35; margin-bottom: 4px; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    @media (max-width: 900px) {
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .bio-photo { position: static; }
+      .bio-photo img { max-width: 280px; margin: 0 auto; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        Dr. Kiran Deep Kaur
+        <span>Child & Adolescent Psychologist</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="btn btn-primary">Book a Session</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== PAGE HERO ===================== -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">About me</span>
+      <h1>Helping children find their voice</h1>
+      <p>Qualified, compassionate, and deeply committed to every child's wellbeing.</p>
+    </div>
+  </div>
+
+  <!-- ===================== BIO SECTION ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="bio-grid">
+        <!-- LEFT: photo -->
+        <div class="bio-photo reveal">
+          <!-- REPLACE src with your actual photo, e.g. images/dr-name.jpg -->
+          <img src="images/dr-photo.jpg" alt="Dr. Kiran Deep Kaur"
+               onerror="this.src='https://placehold.co/400x530/EEF4EE/2E4A35?text=Your+Photo'" />
+          <div class="bio-photo-caption">
+            <strong>Dr. Kiran Deep Kaur</strong>
+            <span>B.A. Psychology (Hons), M.A. Psychology, Special B.Ed (Visual Impairment), PGDCA</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: text -->
+        <div class="bio-text reveal reveal-delay-1">
+          <h2>Hello, I'm Dr. Kiran Deep Kaur</h2>
+
+          <p>
+            <!-- REPLACE with your actual bio -->
+            I am a licensed child and adolescent psychologist with over 15 years of experience working with children, young people, and their families. My practice is built on the belief that every child — regardless of their abilities or challenges — has the potential to flourish.
+          </p>
+          <p>
+            My journey into psychology began with a deep curiosity about how children develop, learn, and make sense of the world around them. Over the years, I have had the privilege of working with a wide range of children, including those with ADHD, intellectual disabilities, visual impairments, and other special needs.
+          </p>
+
+          <div class="bio-highlight">
+            <p>"I believe the most powerful thing we can offer a struggling child is a space where they feel truly seen, heard, and safe."</p>
+          </div>
+
+          <p>
+            I trained at Panjab University, Chandigarh, and have since worked in schools, hospitals, and community clinics. I work collaboratively with parents, teachers, and other professionals to create wraparound support that extends beyond the therapy room.
+          </p>
+          <p>
+            Outside of work, I love reading, spending time in nature, and being with family. I believe that warmth and human connection are at the heart of good therapy.
+          </p>
+
+          <!-- CREDENTIALS -->
+          <div class="credentials-grid">
+            <div class="credential-item">
+              <div class="credential-icon">🎓</div>
+              <div>
+                <h4>Education</h4>
+                <p>B.A. Psychology (Hons) · M.A. Psychology<br>Special B.Ed (Visual Impairment) · PGDCA</p>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">🏅</div>
+              <div>
+                <h4>Licensure</h4>
+                <p>Rehabilitation Council of India<br>Licensed Clinical Psychologist</p>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">💼</div>
+              <div>
+                <h4>Experience</h4>
+                <p>15+ years in clinical practice<br>Worked across schools, hospitals & clinical settings</p>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon">📋</div>
+              <div>
+                <h4>Specialisations</h4>
+                <p>ADHD · Visual Impairment · Intellectual Disability · Child Therapy</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 32px;">
+            <a href="contact.html" class="btn btn-primary">Book a Session</a>
+            &nbsp;&nbsp;
+            <a href="services.html" class="btn btn-outline">View Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VALUES ===================== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <span class="section-label reveal">My approach</span>
+        <h2 class="section-title reveal reveal-delay-1">What I believe in</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <span class="value-icon">💛</span>
+          <h3>Compassion First</h3>
+          <p>Every session begins with empathy. I create a non-judgmental, warm space where children feel safe to express themselves.</p>
+        </div>
+        <div class="value-item reveal reveal-delay-1">
+          <span class="value-icon">🔬</span>
+          <h3>Evidence-Based</h3>
+          <p>I use only well-researched, proven therapeutic approaches — including CBT, play therapy, and behavioural interventions.</p>
+        </div>
+        <div class="value-item reveal reveal-delay-2">
+          <span class="value-icon">🤝</span>
+          <h3>Family-Centred</h3>
+          <p>Families are central to a child's progress. I work closely with parents and caregivers throughout the entire process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THERAPEUTIC APPROACH ===================== -->
+  <section class="section">
+    <div class="container" style="max-width:780px;">
+      <span class="section-label reveal">How I work</span>
+      <h2 class="section-title reveal reveal-delay-1">My therapeutic approach</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        No two children are the same. I draw on a range of evidence-based methods, adapting my approach to the individual child and family.
+      </p>
+      <ul class="approach-list">
+        <li class="reveal">
+          <div class="check">✓</div>
+          <p><strong>Cognitive Behavioural Therapy (CBT)</strong>Helping children identify and change unhelpful thought patterns and behaviours in a structured, goal-oriented way.</p>
+        </li>
+        <li class="reveal reveal-delay-1">
+          <div class="check">✓</div>
+          <p><strong>Play Therapy</strong>Using play as a natural language for younger children to process emotions and experiences in a safe, expressive environment.</p>
+        </li>
+        <li class="reveal reveal-delay-2">
+          <div class="check">✓</div>
+          <p><strong>Behavioural Interventions</strong>Practical, structured strategies for managing challenging behaviours, particularly for children with ADHD and intellectual disabilities.</p>
+        </li>
+        <li class="reveal">
+          <div class="check">✓</div>
+          <p><strong>Parent Coaching</strong>Equipping parents with understanding, skills, and confidence to support their child's growth between sessions.</p>
+        </li>
+        <li class="reveal reveal-delay-1">
+          <div class="check">✓</div>
+          <p><strong>Psychoeducational Assessment</strong>Comprehensive assessments to identify a child's strengths, difficulties, and learning profile, with clear recommendations for home and school.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section style="background: linear-gradient(135deg,#2E4A35,#3d6145); padding:72px 24px; text-align:center; color:white;">
+    <h2 style="color:white; font-size:clamp(1.8rem,3vw,2.2rem); margin-bottom:14px;" class="reveal">Let's work together</h2>
+    <p style="color:rgba(255,255,255,0.8); max-width:480px; margin:0 auto 32px;" class="reveal reveal-delay-1">Schedule a free 20-minute consultation call to see if we're the right fit for your family.</p>
+    <a href="contact.html" class="btn btn-primary reveal reveal-delay-2" style="background:white; color:#2E4A35;">Book a Free Consultation</a>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Dr. Kiran Deep Kaur</h3>
+        <p>Child & Adolescent Psychologist specialising in special needs, ADHD, visual impairment, and intellectual disability.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact & Book</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></li>
+          <li><a href="tel:+910000000000">+91 83604 17703</a></li>
+          <li><a href="#">Chandigarh, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
+      <span>Designed with care 🌿</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Book — Dr. Kiran Deep Kaur | Child Psychologist</title>
+  <meta name="description" content="Book a session with Dr. Kiran Deep Kaur. Use the online booking calendar or send a message directly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Contact-specific styles ---- */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Booking section */
+    .booking-section { background: var(--white); }
+
+    .booking-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .booking-card-header {
+      background: var(--green-light);
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .booking-card-header h3 { font-size: 1.15rem; margin-bottom: 4px; }
+    .booking-card-header p  { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+    .calendly-wrapper {
+      padding: 0;
+      min-height: 650px;
+    }
+    /* Calendly inline embed */
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 650px;
+    }
+
+    /* Contact form card */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 36px;
+    }
+    .form-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .form-card > p { font-size: 0.9rem; color: var(--muted); margin-bottom: 28px; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #2E4A35;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #FDFCF9;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #7A9E7E;
+      box-shadow: 0 0 0 3px rgba(122,158,126,0.15);
+    }
+    .form-group input.input-error,
+    .form-group textarea.input-error { border-color: #E07070; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B6B' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+    .form-error {
+      display: block;
+      font-size: 0.8rem;
+      color: #C0392B;
+      margin-top: 5px;
+    }
+
+    #formSuccess {
+      display: none;
+      background: #EEF4EE;
+      border: 1px solid #7A9E7E;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: #2E4A35;
+      margin-bottom: 20px;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* Contact info sidebar */
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .contact-info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .contact-info-item .ci-icon {
+      width: 42px; height: 42px; min-width: 42px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .contact-info-item h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 3px; }
+    .contact-info-item p  { font-size: 0.95rem; color: var(--text); margin: 0; }
+    .contact-info-item a  { color: #2E4A35; transition: color 0.2s; }
+    .contact-info-item a:hover { color: #7A9E7E; }
+
+    .availability-box {
+      background: var(--lavender);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+    .availability-box h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: #2E4A35; margin-bottom: 12px; }
+    .avail-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(46,74,53,0.1);
+      color: var(--text);
+    }
+    .avail-row:last-child { border-bottom: none; }
+    .avail-row span:last-child { color: #2E4A35; font-weight: 700; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        Dr. Kiran Deep Kaur
+        <span>Child & Adolescent Psychologist</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="btn btn-primary">Book a Session</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== PAGE HERO ===================== -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Get in touch</span>
+      <h1>Book a session or say hello</h1>
+      <p>Use the calendar below to book directly, or send me a message and I'll get back to you within 1 business day.</p>
+    </div>
+  </div>
+
+  <!-- ===================== BOOKING + CONTACT FORM ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: Calendly Booking -->
+        <div class="reveal">
+          <span class="section-label">Online booking</span>
+          <h2 class="section-title" style="margin-bottom:16px;">Choose your time</h2>
+          <p style="color:var(--muted); margin-bottom:24px; font-size:0.95rem;">
+            Select a date and time that suits you. You'll receive a confirmation email immediately after booking.
+          </p>
+          <div class="booking-card">
+            <div class="booking-card-header">
+              <h3>📅 Schedule a Session</h3>
+              <p>Free 20-min consultation · 50-min sessions available</p>
+            </div>
+            <div class="calendly-wrapper">
+              <!--
+                REPLACE the data-url below with your actual Calendly link.
+                Example: https://calendly.com/your-username/consultation
+                You can find this in your Calendly account under "Share your link".
+              -->
+              <div
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/YOUR-CALENDLY-USERNAME/consultation?hide_gdpr_banner=1&primary_color=7a9e7e"
+                style="min-width:320px;height:650px;">
+              </div>
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Contact form + info -->
+        <div class="reveal reveal-delay-1">
+
+          <!-- Contact Form -->
+          <span class="section-label">Send a message</span>
+          <h2 class="section-title" style="margin-bottom:16px;">Have a question?</h2>
+          <p style="color:var(--muted); margin-bottom:24px; font-size:0.95rem;">
+            Not ready to book yet? Send me a message and I'll be happy to answer any questions.
+          </p>
+
+          <div class="form-card">
+            <h3>Contact Form</h3>
+            <p>I'll respond within 1 business day.</p>
+
+            <div id="formSuccess">
+              ✅ Thank you for your message! I'll be in touch soon.
+            </div>
+
+            <!--
+              TO MAKE THIS FORM WORK:
+              Option 1 — Formspree: change action to https://formspree.io/f/YOUR-FORM-ID
+              Option 2 — EmailJS: use their JS SDK to send emails client-side
+              Option 3 — Any backend of your choice
+            -->
+            <form id="contactForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" autocomplete="name" />
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="lyf.inspirational@gmail.com" autocomplete="email" />
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 83604 17703" autocomplete="tel" />
+              </div>
+
+              <div class="form-group">
+                <label for="service">Area of interest</label>
+                <select id="service" name="service">
+                  <option value="">— Please select —</option>
+                  <option value="child-adolescent">Child & Adolescent Psychology</option>
+                  <option value="visual-impairment">Visual Impairment Support</option>
+                  <option value="adhd">ADHD Assessment & Support</option>
+                  <option value="intellectual-disability">Intellectual Disability</option>
+                  <option value="other">Not sure / Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message" placeholder="Tell me a little about what brings you here and how I can help..."></textarea>
+                <span class="form-error"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+              <p class="form-note">
+                🔒 Your information is kept strictly confidential and will never be shared with third parties.
+              </p>
+            </form>
+          </div>
+
+          <!-- Contact info -->
+          <div style="margin-top: 32px;">
+            <h3 style="font-size:1rem; margin-bottom:16px; color:#2E4A35;">Other ways to reach me</h3>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="ci-icon">📧</div>
+                <div>
+                  <h4>Email</h4>
+                  <!-- REPLACE with your actual email -->
+                  <p><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="ci-icon">📞</div>
+                <div>
+                  <h4>Phone / WhatsApp</h4>
+                  <!-- REPLACE with your actual number -->
+                  <p><a href="tel:+910000000000">+91 83604 17703</a></p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="ci-icon">📍</div>
+                <div>
+                  <h4>Location</h4>
+                  <!-- REPLACE with your actual address -->
+                  <p>Sector 22, Near PGI Road<br>Chandigarh, Punjab, India</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Availability -->
+            <div class="availability-box">
+              <h4>Availability</h4>
+              <!-- REPLACE with your actual hours -->
+              <div class="avail-row"><span>Monday – Friday</span><span>10:00 am – 6:00 pm</span></div>
+              <div class="avail-row"><span>Saturday</span><span>10:00 am – 2:00 pm</span></div>
+              <div class="avail-row"><span>Sunday</span><span>Closed</span></div>
+              <div class="avail-row"><span>Online sessions</span><span>Available</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REASSURANCE STRIP ===================== -->
+  <section class="section section-alt" style="padding: 48px 0;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px; text-align:center;">
+        <div class="reveal">
+          <div style="font-size:2rem; margin-bottom:10px;">🔒</div>
+          <h4 style="margin-bottom:6px;">Strictly Confidential</h4>
+          <p style="font-size:0.88rem; color:var(--muted);">Everything shared in sessions is kept completely confidential in line with professional ethics.</p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div style="font-size:2rem; margin-bottom:10px;">📅</div>
+          <h4 style="margin-bottom:6px;">Flexible Scheduling</h4>
+          <p style="font-size:0.88rem; color:var(--muted);">Evening and weekend slots available. In-person and online sessions offered.</p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div style="font-size:2rem; margin-bottom:10px;">💬</div>
+          <h4 style="margin-bottom:6px;">Quick Response</h4>
+          <p style="font-size:0.88rem; color:var(--muted);">I aim to respond to all enquiries within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Dr. Kiran Deep Kaur</h3>
+        <p>Child & Adolescent Psychologist specialising in special needs, ADHD, visual impairment, and intellectual disability.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact & Book</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></li>
+          <li><a href="tel:+910000000000">+91 83604 17703</a></li>
+          <li><a href="#">Chandigarh, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
+      <span>Designed with care 🌿</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
