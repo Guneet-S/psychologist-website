@@ -3,162 +3,291 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Dr. Kiran Deep Kaur | Child Psychologist</title>
-  <meta name="description" content="Learn about Dr. Kiran Deep Kaur's background, qualifications, and approach to child and adolescent psychology." />
+  <title>About — Dr. Kiran Deep Kaur | Child &amp; Adolescent Psychologist</title>
+  <meta name="description" content="Learn about Dr. Kiran Deep Kaur — her background, qualifications, values, and therapeutic approach to child and adolescent psychology in Chandigarh, India." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ---- About-specific styles ---- */
+    /* ===================== ABOUT PAGE STYLES ===================== */
 
-    /* Bio section */
+    /* --- Bio Section --- */
     .bio-grid {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 60px;
+      grid-template-columns: 5fr 8fr;
+      gap: 72px;
       align-items: start;
     }
-    .bio-photo {
+    .bio-photo-col {
       position: sticky;
-      top: 90px;
+      top: 96px;
     }
-    .bio-photo img {
-      width: 100%;
-      border-radius: 20px;
+    .bio-photo-frame {
+      border-radius: 28px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 20px 56px rgba(74,124,89,0.16);
+    }
+    .bio-photo-frame img {
+      width: 100%; height: 100%;
       object-fit: cover;
-      aspect-ratio: 3/4;
-      box-shadow: 0 16px 48px rgba(46,74,53,0.15);
+      display: block;
     }
-    .bio-photo-caption {
-      background: var(--green-light);
-      border-radius: 12px;
-      padding: 16px 20px;
+    .bio-caption-card {
+      background: var(--sage-pale);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 22px;
       margin-top: 16px;
       text-align: center;
     }
-    .bio-photo-caption strong { display: block; color: #2E4A35; font-size: 1rem; }
-    .bio-photo-caption span   { font-size: 0.85rem; color: var(--muted); }
+    .bio-caption-card strong {
+      display: block;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: var(--sage-deep);
+      margin-bottom: 6px;
+    }
+    .bio-caption-card span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: block;
+    }
 
-    .bio-text h2 { font-size: 2rem; margin-bottom: 20px; }
-    .bio-text p  { color: var(--muted); margin-bottom: 16px; font-size: 1.02rem; line-height: 1.8; }
-
-    .bio-highlight {
-      background: var(--lavender);
-      border-radius: var(--radius);
-      padding: 24px 28px;
+    /* Bio text */
+    .bio-text h2 {
+      font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+      color: var(--text-dark);
+      margin-bottom: 22px;
+    }
+    .bio-text p {
+      color: var(--text-body);
+      font-size: 1.02rem;
+      line-height: 1.82;
+      margin-bottom: 18px;
+    }
+    .bio-blockquote {
+      border-left: 4px solid var(--sage);
+      background: var(--sage-pale);
+      border-radius: 0 16px 16px 0;
+      padding: 20px 26px;
       margin: 28px 0;
-    }
-    .bio-highlight p {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-family: 'Lora', serif;
+      font-size: 1.08rem;
       font-style: italic;
-      color: #2E4A35;
-      margin: 0;
+      color: var(--sage-dark);
+      line-height: 1.65;
+    }
+    .bio-blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* Credentials */
+    /* Credentials grid */
     .credentials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       margin-top: 32px;
     }
-    .credential-item {
+    .cred-card {
       display: flex;
       gap: 14px;
       align-items: flex-start;
       padding: 20px;
-      background: white;
-      border-radius: var(--radius);
+      background: #fff;
+      border-radius: 18px;
       border: 1px solid var(--border);
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .credential-icon {
+    .cred-card:hover {
+      border-color: var(--sage-mid);
+      box-shadow: 0 6px 20px rgba(74,124,89,0.1);
+    }
+    .cred-icon {
       width: 44px; height: 44px; min-width: 44px;
-      background: var(--green-light);
-      border-radius: 10px;
+      background: var(--sage-light);
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+      color: var(--sage);
     }
-    .credential-item h4 { font-size: 0.9rem; color: #2E4A35; margin-bottom: 4px; }
-    .credential-item p  { font-size: 0.82rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    .cred-card h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .cred-card p {
+      font-size: 0.84rem;
+      color: var(--text-body);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .bio-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
 
-    /* Values */
+    /* --- Values Section --- */
     .values-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-    .value-item {
+    .value-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 38px 28px 32px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(74,124,89,0.07);
       text-align: center;
-      padding: 36px 24px;
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s, transform 0.3s;
     }
-    .value-item .value-icon {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-      display: block;
+    .value-card:hover {
+      box-shadow: 0 12px 36px rgba(74,124,89,0.13);
+      transform: translateY(-4px);
     }
-    .value-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
-    .value-item p  { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-
-    /* Approach */
-    .approach-list { list-style: none; margin-top: 24px; }
-    .approach-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .approach-list li:last-child { border-bottom: none; }
-    .approach-list .check {
-      min-width: 28px; height: 28px;
-      background: var(--green-light);
+    .value-icon-wrap {
+      width: 64px; height: 64px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: #2E4A35;
-      font-size: 0.85rem;
-      font-weight: 700;
+      margin: 0 auto 20px;
     }
-    .approach-list li p { margin: 0; }
-    .approach-list li strong { display: block; color: #2E4A35; margin-bottom: 4px; }
+    .value-icon-wrap.sage-bg   { background: var(--sage-light); color: var(--sage); }
+    .value-icon-wrap.lav-bg    { background: var(--lavender); color: #7B6DB8; }
+    .value-icon-wrap.gold-bg   { background: var(--gold-light); color: var(--gold); }
+    .value-card h3 {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .value-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
 
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
+    /* --- Therapeutic Approach --- */
+    .approach-list {
+      list-style: none;
+      margin-top: 28px;
+      padding: 0;
+    }
+    .approach-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .approach-list li:last-child { border-bottom: none; }
+    .approach-check {
+      width: 32px; height: 32px; min-width: 32px;
+      background: var(--sage-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage);
+      margin-top: 2px;
+    }
+    .approach-list li strong {
+      display: block;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .approach-list li p {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin: 0;
+    }
 
-    @media (max-width: 900px) {
+    /* --- CTA Banner --- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 60%, #2E5C3E 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.85rem, 3vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: #fff;
+      color: var(--sage-deep);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      min-height: 44px;
+    }
+    .btn-white:hover { background: var(--sage-pale); transform: translateY(-2px); }
+
+    /* --- Responsive --- */
+    @media (max-width: 960px) {
       .values-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .bio-grid { grid-template-columns: 1fr; }
-      .bio-photo { position: static; }
-      .bio-photo img { max-width: 280px; margin: 0 auto; }
+      .bio-grid { grid-template-columns: 1fr; gap: 40px; }
+      .bio-photo-col { position: static; }
+      .bio-photo-frame { max-width: 280px; margin: 0 auto; aspect-ratio: 1 / 1; }
       .credentials-grid { grid-template-columns: 1fr; }
       .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-delay-1, .reveal-delay-2 {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- ===================== NAVBAR ===================== -->
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         Dr. Kiran Deep Kaur
-        <span>Child & Adolescent Psychologist</span>
+        <span>Child &amp; Adolescent Psychologist</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" role="list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html" class="btn btn-primary">Book a Session</a></li>
       </ul>
@@ -170,73 +299,80 @@
     <div class="container">
       <span class="section-label">About me</span>
       <h1>Helping children find their voice</h1>
-      <p>Qualified, compassionate, and deeply committed to every child's wellbeing.</p>
+      <p class="section-subtitle">Qualified, compassionate, and deeply committed to every child's wellbeing.</p>
     </div>
   </div>
 
   <!-- ===================== BIO SECTION ===================== -->
-  <section class="section">
+  <section class="section" aria-labelledby="bio-heading">
     <div class="container">
       <div class="bio-grid">
-        <!-- LEFT: photo -->
-        <div class="bio-photo reveal">
-          <!-- REPLACE src with your actual photo, e.g. images/dr-name.jpg -->
-          <img src="images/dr-photo.jpg" alt="Dr. Kiran Deep Kaur"
-               onerror="this.src='https://placehold.co/400x530/EEF4EE/2E4A35?text=Your+Photo'" />
-          <div class="bio-photo-caption">
+
+        <!-- LEFT: sticky photo -->
+        <div class="bio-photo-col reveal">
+          <div class="bio-photo-frame">
+            <img
+              src="images/dr-photo.jpg"
+              alt="Dr. Kiran Deep Kaur — Child and Adolescent Psychologist"
+              onerror="this.src='https://placehold.co/400x533/EAF3EC/2A4A38?text=Dr.+Kiran+Deep+Kaur'"
+            />
+          </div>
+          <div class="bio-caption-card">
             <strong>Dr. Kiran Deep Kaur</strong>
-            <span>B.A. Psychology (Hons), M.A. Psychology, Special B.Ed (Visual Impairment), PGDCA</span>
+            <span>B.A. Psychology (Hons), M.A. Psychology,<br>Special B.Ed (Visual Impairment), PGDCA</span>
           </div>
         </div>
 
-        <!-- RIGHT: text -->
+        <!-- RIGHT: bio text -->
         <div class="bio-text reveal reveal-delay-1">
-          <h2>Hello, I'm Dr. Kiran Deep Kaur</h2>
+          <h2 id="bio-heading">Hello, I'm Dr. Kiran Deep Kaur</h2>
 
-          <p>
-            <!-- REPLACE with your actual bio -->
-            I am a licensed child and adolescent psychologist with over 15 years of experience working with children, young people, and their families. My practice is built on the belief that every child — regardless of their abilities or challenges — has the potential to flourish.
-          </p>
-          <p>
-            My journey into psychology began with a deep curiosity about how children develop, learn, and make sense of the world around them. Over the years, I have had the privilege of working with a wide range of children, including those with ADHD, intellectual disabilities, visual impairments, and other special needs.
-          </p>
+          <p>I am a child and adolescent psychologist with over 15 years of experience working with children, young people, and their families in Chandigarh, India. My practice is built on the belief that every child — regardless of their abilities or challenges — has the potential to flourish.</p>
 
-          <div class="bio-highlight">
-            <p>"I believe the most powerful thing we can offer a struggling child is a space where they feel truly seen, heard, and safe."</p>
-          </div>
+          <p>My journey into psychology began with a deep curiosity about how children develop, learn, and make sense of the world around them. Over the years, I have had the privilege of working with a wide range of children, including those with ADHD, intellectual disabilities, visual impairments, and other special needs.</p>
 
-          <p>
-            I trained at Panjab University, Chandigarh, and have since worked in schools, hospitals, and community clinics. I work collaboratively with parents, teachers, and other professionals to create wraparound support that extends beyond the therapy room.
-          </p>
-          <p>
-            Outside of work, I love reading, spending time in nature, and being with family. I believe that warmth and human connection are at the heart of good therapy.
-          </p>
+          <blockquote class="bio-blockquote">
+            "I believe the most powerful thing we can offer a struggling child is a space where they feel truly seen, heard, and safe."
+            <cite>— Dr. Kiran Deep Kaur</cite>
+          </blockquote>
+
+          <p>I trained at Panjab University, Chandigarh, and have since worked in schools, hospitals, and community clinics across the region. I work collaboratively with parents, teachers, and other professionals to create wraparound support that extends beyond the therapy room.</p>
+
+          <p>I bring specialist training in visual impairment through my Special B.Ed qualification, allowing me to offer genuinely inclusive psychological support that is adapted for children with sensory needs. My approach is always warm, evidence-based, and child-led.</p>
 
           <!-- CREDENTIALS -->
-          <div class="credentials-grid">
-            <div class="credential-item">
-              <div class="credential-icon">🎓</div>
+          <div class="credentials-grid" role="list" aria-label="Qualifications and credentials">
+            <div class="cred-card" role="listitem">
+              <div class="cred-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
               <div>
                 <h4>Education</h4>
-                <p>B.A. Psychology (Hons) · M.A. Psychology<br>Special B.Ed (Visual Impairment) · PGDCA</p>
+                <p>B.A. Psychology (Hons) · M.A. Psychology · Special B.Ed (Visual Impairment) · PGDCA</p>
               </div>
             </div>
-            <div class="credential-item">
-              <div class="credential-icon">🏅</div>
+            <div class="cred-card" role="listitem">
+              <div class="cred-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              </div>
               <div>
                 <h4>Licensure</h4>
-                <p>Rehabilitation Council of India<br>Licensed Clinical Psychologist</p>
+                <p>Rehabilitation Council of India · Licensed Clinical Psychologist</p>
               </div>
             </div>
-            <div class="credential-item">
-              <div class="credential-icon">💼</div>
+            <div class="cred-card" role="listitem">
+              <div class="cred-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
               <div>
                 <h4>Experience</h4>
-                <p>15+ years in clinical practice<br>Worked across schools, hospitals & clinical settings</p>
+                <p>15+ years in clinical practice · Schools, hospitals &amp; community clinics</p>
               </div>
             </div>
-            <div class="credential-item">
-              <div class="credential-icon">📋</div>
+            <div class="cred-card" role="listitem">
+              <div class="cred-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
               <div>
                 <h4>Specialisations</h4>
                 <p>ADHD · Visual Impairment · Intellectual Disability · Child Therapy</p>
@@ -244,9 +380,8 @@
             </div>
           </div>
 
-          <div style="margin-top: 32px;">
+          <div class="bio-ctas">
             <a href="contact.html" class="btn btn-primary">Book a Session</a>
-            &nbsp;&nbsp;
             <a href="services.html" class="btn btn-outline">View Services</a>
           </div>
         </div>
@@ -255,70 +390,102 @@
   </section>
 
   <!-- ===================== VALUES ===================== -->
-  <section class="section section-alt">
+  <section class="section section-alt" aria-labelledby="values-heading">
     <div class="container">
-      <div style="text-align:center; margin-bottom:48px;">
+      <div style="text-align:center; margin-bottom:52px;">
         <span class="section-label reveal">My approach</span>
-        <h2 class="section-title reveal reveal-delay-1">What I believe in</h2>
+        <h2 class="section-title reveal reveal-delay-1" id="values-heading">What I believe in</h2>
+        <p class="section-subtitle reveal reveal-delay-2" style="max-width:540px; margin:0 auto;">Three core values that guide every session and every relationship with children and families.</p>
       </div>
       <div class="values-grid">
-        <div class="value-item reveal">
-          <span class="value-icon">💛</span>
+        <article class="value-card reveal">
+          <div class="value-icon-wrap sage-bg" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
           <h3>Compassion First</h3>
-          <p>Every session begins with empathy. I create a non-judgmental, warm space where children feel safe to express themselves.</p>
-        </div>
-        <div class="value-item reveal reveal-delay-1">
-          <span class="value-icon">🔬</span>
+          <p>Every session begins with empathy. I create a non-judgmental, warm space where children feel safe to express themselves without fear.</p>
+        </article>
+        <article class="value-card reveal reveal-delay-1">
+          <div class="value-icon-wrap lav-bg" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+          </div>
           <h3>Evidence-Based</h3>
-          <p>I use only well-researched, proven therapeutic approaches — including CBT, play therapy, and behavioural interventions.</p>
-        </div>
-        <div class="value-item reveal reveal-delay-2">
-          <span class="value-icon">🤝</span>
+          <p>I use only well-researched, proven therapeutic approaches — including CBT, play therapy, and behavioural interventions — adapted for each child.</p>
+        </article>
+        <article class="value-card reveal reveal-delay-2">
+          <div class="value-icon-wrap gold-bg" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <h3>Family-Centred</h3>
-          <p>Families are central to a child's progress. I work closely with parents and caregivers throughout the entire process.</p>
-        </div>
+          <p>Families are central to a child's progress. I work closely with parents and caregivers as partners throughout the entire therapeutic journey.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ===================== THERAPEUTIC APPROACH ===================== -->
-  <section class="section">
-    <div class="container" style="max-width:780px;">
+  <section class="section" aria-labelledby="approach-heading">
+    <div class="container" style="max-width:800px;">
       <span class="section-label reveal">How I work</span>
-      <h2 class="section-title reveal reveal-delay-1">My therapeutic approach</h2>
+      <h2 class="section-title reveal reveal-delay-1" id="approach-heading">My therapeutic approach</h2>
       <p class="section-subtitle reveal reveal-delay-2">
-        No two children are the same. I draw on a range of evidence-based methods, adapting my approach to the individual child and family.
+        No two children are the same. I draw on a range of evidence-based methods, carefully adapting my approach to the individual child, their developmental stage, and their family context.
       </p>
       <ul class="approach-list">
         <li class="reveal">
-          <div class="check">✓</div>
-          <p><strong>Cognitive Behavioural Therapy (CBT)</strong>Helping children identify and change unhelpful thought patterns and behaviours in a structured, goal-oriented way.</p>
+          <div class="approach-check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Cognitive Behavioural Therapy (CBT)</strong>
+            <p>Helping children identify and change unhelpful thought patterns and behaviours in a structured, goal-oriented way that builds long-lasting skills.</p>
+          </div>
         </li>
         <li class="reveal reveal-delay-1">
-          <div class="check">✓</div>
-          <p><strong>Play Therapy</strong>Using play as a natural language for younger children to process emotions and experiences in a safe, expressive environment.</p>
+          <div class="approach-check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Play Therapy</strong>
+            <p>Using play as a natural language for younger children to process emotions and experiences in a safe, expressive, child-led environment.</p>
+          </div>
         </li>
         <li class="reveal reveal-delay-2">
-          <div class="check">✓</div>
-          <p><strong>Behavioural Interventions</strong>Practical, structured strategies for managing challenging behaviours, particularly for children with ADHD and intellectual disabilities.</p>
+          <div class="approach-check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Behavioural Interventions</strong>
+            <p>Practical, structured strategies for managing challenging behaviours, particularly for children with ADHD and intellectual disabilities.</p>
+          </div>
         </li>
         <li class="reveal">
-          <div class="check">✓</div>
-          <p><strong>Parent Coaching</strong>Equipping parents with understanding, skills, and confidence to support their child's growth between sessions.</p>
+          <div class="approach-check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Parent Coaching</strong>
+            <p>Equipping parents with understanding, skills, and confidence to support their child's growth between sessions and at home.</p>
+          </div>
         </li>
         <li class="reveal reveal-delay-1">
-          <div class="check">✓</div>
-          <p><strong>Psychoeducational Assessment</strong>Comprehensive assessments to identify a child's strengths, difficulties, and learning profile, with clear recommendations for home and school.</p>
+          <div class="approach-check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Psychoeducational Assessment</strong>
+            <p>Comprehensive assessments to identify a child's strengths, difficulties, and learning profile, with clear recommendations for home and school.</p>
+          </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ===================== CTA ===================== -->
-  <section style="background: linear-gradient(135deg,#2E4A35,#3d6145); padding:72px 24px; text-align:center; color:white;">
-    <h2 style="color:white; font-size:clamp(1.8rem,3vw,2.2rem); margin-bottom:14px;" class="reveal">Let's work together</h2>
-    <p style="color:rgba(255,255,255,0.8); max-width:480px; margin:0 auto 32px;" class="reveal reveal-delay-1">Schedule a free 20-minute consultation call to see if we're the right fit for your family.</p>
-    <a href="contact.html" class="btn btn-primary reveal reveal-delay-2" style="background:white; color:#2E4A35;">Book a Free Consultation</a>
+  <!-- ===================== CTA BANNER ===================== -->
+  <section class="cta-banner" aria-labelledby="about-cta-heading">
+    <h2 class="reveal" id="about-cta-heading">Let's work together</h2>
+    <p class="reveal reveal-delay-1">Schedule a free 20-minute consultation call to see if we're the right fit for your family.</p>
+    <a href="contact.html" class="btn-white reveal reveal-delay-2">Book a Free Consultation</a>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
@@ -326,7 +493,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <h3>Dr. Kiran Deep Kaur</h3>
-        <p>Child & Adolescent Psychologist specialising in special needs, ADHD, visual impairment, and intellectual disability.</p>
+        <p>Child &amp; Adolescent Psychologist specialising in ADHD, visual impairment, intellectual disability, and special needs — Chandigarh, India.</p>
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
@@ -334,21 +501,21 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact & Book</a></li>
+          <li><a href="contact.html">Contact &amp; Book</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></li>
-          <li><a href="tel:+910000000000">+91 83604 17703</a></li>
-          <li><a href="#">Chandigarh, India</a></li>
+          <li><a href="tel:+918360417703">+91 83604 17703</a></li>
+          <li><a href="contact.html">Chandigarh, India</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
-      <span>Designed with care 🌿</span>
+      <span>&#169; 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
+      <span>Designed with care</span>
     </div>
   </footer>
 

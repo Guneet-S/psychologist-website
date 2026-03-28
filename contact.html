@@ -3,65 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact & Book — Dr. Kiran Deep Kaur | Child Psychologist</title>
-  <meta name="description" content="Book a session with Dr. Kiran Deep Kaur. Use the online booking calendar or send a message directly." />
+  <title>Contact &amp; Book — Dr. Kiran Deep Kaur | Child Psychologist</title>
+  <meta name="description" content="Book a session with Dr. Kiran Deep Kaur in Chandigarh. Send a message, call, or use the online booking form. Free 20-minute initial consultation available." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ---- Contact-specific styles ---- */
+    /* ===================== CONTACT PAGE STYLES ===================== */
 
+    /* --- Contact Grid --- */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 5fr 7fr;
+      gap: 56px;
       align-items: start;
     }
 
-    /* Booking section */
-    .booking-section { background: var(--white); }
-
-    .booking-card {
-      background: var(--white);
-      border-radius: var(--radius);
+    /* --- Contact Info Cards --- */
+    .contact-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ci-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      background: #fff;
+      border-radius: 18px;
       border: 1px solid var(--border);
-      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .booking-card-header {
-      background: var(--green-light);
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border);
+    .ci-card:hover {
+      border-color: var(--sage-mid);
+      box-shadow: 0 6px 20px rgba(74,124,89,0.1);
     }
-    .booking-card-header h3 { font-size: 1.15rem; margin-bottom: 4px; }
-    .booking-card-header p  { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .ci-icon-wrap {
+      width: 46px; height: 46px; min-width: 46px;
+      background: var(--sage-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage);
+    }
+    .ci-card h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .ci-card p {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .ci-card a {
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .ci-card a:hover { color: var(--sage); }
 
-    .calendly-wrapper {
-      padding: 0;
-      min-height: 650px;
+    /* --- Availability Table --- */
+    .avail-box {
+      background: var(--lavender);
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin-top: 20px;
     }
-    /* Calendly inline embed */
-    .calendly-inline-widget {
-      min-width: 320px;
-      height: 650px;
+    .avail-box h4 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sage-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .avail-box h4 svg { color: var(--sage); }
+    .avail-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .avail-table tr {
+      border-bottom: 1px solid rgba(74,124,89,0.12);
+    }
+    .avail-table tr:last-child { border-bottom: none; }
+    .avail-table td {
+      padding: 9px 0;
+      font-size: 0.88rem;
+      color: var(--text-body);
+    }
+    .avail-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--sage-dark);
+      font-family: 'Raleway', sans-serif;
     }
 
-    /* Contact form card */
+    /* --- Contact Form --- */
     .form-card {
-      background: var(--white);
-      border-radius: var(--radius);
+      background: #fff;
+      border-radius: 22px;
       border: 1px solid var(--border);
-      padding: 36px;
+      padding: 38px 40px;
+      box-shadow: 0 4px 20px rgba(74,124,89,0.07);
     }
-    .form-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
-    .form-card > p { font-size: 0.9rem; color: var(--muted); margin-bottom: 28px; }
+    .form-card-header {
+      margin-bottom: 28px;
+    }
+    .form-card-header h2 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .form-card-header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
 
-    .form-group { margin-bottom: 20px; }
+    .form-group {
+      margin-bottom: 20px;
+    }
     .form-group label {
       display: block;
-      font-size: 0.85rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #2E4A35;
+      color: var(--sage-dark);
       margin-bottom: 7px;
       letter-spacing: 0.03em;
     }
@@ -69,125 +147,238 @@
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 12px 16px;
+      padding: 13px 16px;
       border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-family: 'Lato', sans-serif;
+      border-radius: 12px;
+      font-family: 'Raleway', sans-serif;
       font-size: 0.95rem;
-      color: var(--text);
-      background: #FDFCF9;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      color: var(--text-dark);
+      background: var(--sage-pale);
+      transition: border-color 0.2s, box-shadow 0.2s;
       outline: none;
+      box-sizing: border-box;
+      min-height: 44px;
     }
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: #7A9E7E;
-      box-shadow: 0 0 0 3px rgba(122,158,126,0.15);
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(74,124,89,0.15);
+      background: #fff;
+    }
+    .form-group input:focus-visible,
+    .form-group select:focus-visible,
+    .form-group textarea:focus-visible {
+      outline: 3px solid var(--sage);
+      outline-offset: 2px;
     }
     .form-group input.input-error,
-    .form-group textarea.input-error { border-color: #E07070; }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B6B' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
-
+    .form-group textarea.input-error {
+      border-color: #C0392B;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236A7D70' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      background-color: var(--sage-pale);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
     .form-error {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #C0392B;
       margin-top: 5px;
+      font-family: 'Raleway', sans-serif;
     }
-
     #formSuccess {
       display: none;
-      background: #EEF4EE;
-      border: 1px solid #7A9E7E;
-      border-radius: 8px;
+      background: var(--sage-light);
+      border: 1px solid var(--sage-mid);
+      border-radius: 12px;
       padding: 14px 18px;
       font-size: 0.9rem;
-      color: #2E4A35;
+      color: var(--sage-deep);
       margin-bottom: 20px;
+      font-family: 'Raleway', sans-serif;
     }
-
+    .form-submit-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      margin-top: 4px;
+    }
     .form-note {
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 0.78rem;
+      color: var(--text-muted);
       margin-top: 12px;
-      line-height: 1.5;
-    }
-
-    /* Contact info sidebar */
-    .contact-info-list {
+      line-height: 1.6;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .contact-info-item {
-      display: flex;
-      gap: 14px;
+      gap: 7px;
       align-items: flex-start;
-      padding: 16px;
-      background: var(--white);
-      border-radius: 10px;
-      border: 1px solid var(--border);
     }
-    .contact-info-item .ci-icon {
-      width: 42px; height: 42px; min-width: 42px;
-      background: var(--green-light);
-      border-radius: 10px;
+    .form-note svg { color: var(--sage); flex-shrink: 0; margin-top: 1px; }
+
+    /* --- Calendly Placeholder --- */
+    .calendly-placeholder {
+      background: var(--sage-pale);
+      border: 2px dashed var(--sage-mid);
+      border-radius: 22px;
+      padding: 52px 40px;
+      text-align: center;
+    }
+    .calendly-placeholder .cal-icon {
+      width: 64px; height: 64px;
+      background: var(--sage-light);
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
+      color: var(--sage);
+      margin: 0 auto 20px;
     }
-    .contact-info-item h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 3px; }
-    .contact-info-item p  { font-size: 0.95rem; color: var(--text); margin: 0; }
-    .contact-info-item a  { color: #2E4A35; transition: color 0.2s; }
-    .contact-info-item a:hover { color: #7A9E7E; }
-
-    .availability-box {
-      background: var(--lavender);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-top: 24px;
+    .calendly-placeholder h3 {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
     }
-    .availability-box h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: #2E4A35; margin-bottom: 12px; }
-    .avail-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(46,74,53,0.1);
-      color: var(--text);
+    .calendly-placeholder p {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      max-width: 460px;
+      margin: 0 auto 6px;
     }
-    .avail-row:last-child { border-bottom: none; }
-    .avail-row span:last-child { color: #2E4A35; font-weight: 700; }
+    .calendly-placeholder .setup-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(74,124,89,0.07);
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+    .calendly-placeholder .setup-note code {
+      font-family: monospace;
+      background: rgba(74,124,89,0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: var(--sage-dark);
+    }
 
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
+    /* --- Reassurance Strip --- */
+    .reassurance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .reassurance-item {
+      padding: 28px 20px;
+    }
+    .r-icon-wrap {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .r-icon-wrap.sage-bg  { background: var(--sage-light); color: var(--sage); }
+    .r-icon-wrap.lav-bg   { background: var(--lavender); color: #7B6DB8; }
+    .r-icon-wrap.gold-bg  { background: var(--gold-light); color: var(--gold); }
+    .reassurance-item h4 {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .reassurance-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
 
+    /* --- CTA Banner --- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 60%, #2E5C3E 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.85rem, 3vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: #fff;
+      color: var(--sage-deep);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      min-height: 44px;
+    }
+    .btn-white:hover { background: var(--sage-pale); transform: translateY(-2px); }
+
+    /* --- Responsive --- */
     @media (max-width: 900px) {
       .contact-grid { grid-template-columns: 1fr; }
+      .reassurance-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .form-card { padding: 28px 22px; }
+      .form-row { grid-template-columns: 1fr; }
+      .reassurance-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-delay-1 {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- ===================== NAVBAR ===================== -->
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         Dr. Kiran Deep Kaur
-        <span>Child & Adolescent Psychologist</span>
+        <span>Child &amp; Adolescent Psychologist</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html" class="btn btn-primary">Book a Session</a></li>
+        <li><a href="contact.html" class="btn btn-primary active">Book a Session</a></li>
       </ul>
     </div>
   </nav>
@@ -196,178 +387,241 @@
   <div class="page-hero">
     <div class="container">
       <span class="section-label">Get in touch</span>
-      <h1>Book a session or say hello</h1>
-      <p>Use the calendar below to book directly, or send me a message and I'll get back to you within 1 business day.</p>
+      <h1>Let's start the conversation</h1>
+      <p class="section-subtitle">Send a message, call, or use the online booking form. I'll respond within one business day.</p>
     </div>
   </div>
 
-  <!-- ===================== BOOKING + CONTACT FORM ===================== -->
-  <section class="section">
+  <!-- ===================== CONTACT GRID ===================== -->
+  <section class="section" aria-labelledby="contact-heading">
     <div class="container">
       <div class="contact-grid">
 
-        <!-- LEFT: Calendly Booking -->
+        <!-- LEFT: Info + Availability -->
         <div class="reveal">
-          <span class="section-label">Online booking</span>
-          <h2 class="section-title" style="margin-bottom:16px;">Choose your time</h2>
-          <p style="color:var(--muted); margin-bottom:24px; font-size:0.95rem;">
-            Select a date and time that suits you. You'll receive a confirmation email immediately after booking.
-          </p>
-          <div class="booking-card">
-            <div class="booking-card-header">
-              <h3>📅 Schedule a Session</h3>
-              <p>Free 20-min consultation · 50-min sessions available</p>
-            </div>
-            <div class="calendly-wrapper">
-              <!--
-                REPLACE the data-url below with your actual Calendly link.
-                Example: https://calendly.com/your-username/consultation
-                You can find this in your Calendly account under "Share your link".
-              -->
-              <div
-                class="calendly-inline-widget"
-                data-url="https://calendly.com/YOUR-CALENDLY-USERNAME/consultation?hide_gdpr_banner=1&primary_color=7a9e7e"
-                style="min-width:320px;height:650px;">
+          <span class="section-label">Reach me</span>
+          <h2 class="section-title" id="contact-heading" style="margin-bottom:20px;">Contact information</h2>
+
+          <div class="contact-info-cards">
+            <div class="ci-card">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
-              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              <div>
+                <h4>Phone &amp; WhatsApp</h4>
+                <p><a href="tel:+918360417703">+91 83604 17703</a></p>
+              </div>
             </div>
+            <div class="ci-card">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="ci-card">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Location</h4>
+                <p>Chandigarh, Punjab, India</p>
+              </div>
+            </div>
+            <div class="ci-card">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h4>Response Time</h4>
+                <p>Within 1 business day</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Availability -->
+          <div class="avail-box" aria-label="Availability schedule">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Availability
+            </h4>
+            <table class="avail-table">
+              <tbody>
+                <tr>
+                  <td>Monday – Friday</td>
+                  <td>10:00 am – 6:00 pm</td>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td>10:00 am – 2:00 pm</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td>Closed</td>
+                </tr>
+                <tr>
+                  <td>Online sessions</td>
+                  <td>Available</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- RIGHT: Contact form + info -->
+        <!-- RIGHT: Contact Form -->
         <div class="reveal reveal-delay-1">
-
-          <!-- Contact Form -->
-          <span class="section-label">Send a message</span>
-          <h2 class="section-title" style="margin-bottom:16px;">Have a question?</h2>
-          <p style="color:var(--muted); margin-bottom:24px; font-size:0.95rem;">
-            Not ready to book yet? Send me a message and I'll be happy to answer any questions.
-          </p>
-
           <div class="form-card">
-            <h3>Contact Form</h3>
-            <p>I'll respond within 1 business day.</p>
-
-            <div id="formSuccess">
-              ✅ Thank you for your message! I'll be in touch soon.
+            <div class="form-card-header">
+              <h2>Send a message</h2>
+              <p>Not ready to book yet? Send me a message and I'll be happy to answer any questions.</p>
             </div>
 
-            <!--
-              TO MAKE THIS FORM WORK:
-              Option 1 — Formspree: change action to https://formspree.io/f/YOUR-FORM-ID
-              Option 2 — EmailJS: use their JS SDK to send emails client-side
-              Option 3 — Any backend of your choice
-            -->
-            <form id="contactForm" action="#" method="POST">
-              <div class="form-group">
-                <label for="name">Your Name *</label>
-                <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" autocomplete="name" />
-                <span class="form-error"></span>
+            <div id="formSuccess" role="alert" aria-live="polite">
+              Thank you for your message — I'll be in touch soon.
+            </div>
+
+            <form id="contactForm" action="#" method="POST" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="e.g. Priya Sharma"
+                    autocomplete="name"
+                    aria-required="true"
+                  />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    autocomplete="email"
+                    aria-required="true"
+                  />
+                  <span class="form-error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number <span style="font-weight:400; color:var(--text-muted);">(optional)</span></label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+91 83604 17703"
+                    autocomplete="tel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="service">Area of Interest</label>
+                  <select id="service" name="service" aria-label="Select service area of interest">
+                    <option value="">— Please select —</option>
+                    <option value="child-adolescent">Child &amp; Adolescent Psychology</option>
+                    <option value="visual-impairment">Visual Impairment Support</option>
+                    <option value="adhd">ADHD Assessment &amp; Support</option>
+                    <option value="intellectual-disability">Intellectual Disability</option>
+                    <option value="other">Not sure / Other</option>
+                  </select>
+                </div>
               </div>
 
               <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="lyf.inspirational@gmail.com" autocomplete="email" />
-                <span class="form-error"></span>
+                <label for="message">Your Message <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me a little about what brings you here and how I can help..."
+                  aria-required="true"
+                ></textarea>
+                <span class="form-error" aria-live="polite"></span>
               </div>
 
-              <div class="form-group">
-                <label for="phone">Phone Number (optional)</label>
-                <input type="tel" id="phone" name="phone" placeholder="+91 83604 17703" autocomplete="tel" />
-              </div>
+              <button type="submit" class="btn btn-primary form-submit-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </button>
 
-              <div class="form-group">
-                <label for="service">Area of interest</label>
-                <select id="service" name="service">
-                  <option value="">— Please select —</option>
-                  <option value="child-adolescent">Child & Adolescent Psychology</option>
-                  <option value="visual-impairment">Visual Impairment Support</option>
-                  <option value="adhd">ADHD Assessment & Support</option>
-                  <option value="intellectual-disability">Intellectual Disability</option>
-                  <option value="other">Not sure / Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Your Message *</label>
-                <textarea id="message" name="message" placeholder="Tell me a little about what brings you here and how I can help..."></textarea>
-                <span class="form-error"></span>
-              </div>
-
-              <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
               <p class="form-note">
-                🔒 Your information is kept strictly confidential and will never be shared with third parties.
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Your information is kept strictly confidential and will never be shared with third parties.
               </p>
             </form>
           </div>
+        </div>
 
-          <!-- Contact info -->
-          <div style="margin-top: 32px;">
-            <h3 style="font-size:1rem; margin-bottom:16px; color:#2E4A35;">Other ways to reach me</h3>
-            <div class="contact-info-list">
-              <div class="contact-info-item">
-                <div class="ci-icon">📧</div>
-                <div>
-                  <h4>Email</h4>
-                  <!-- REPLACE with your actual email -->
-                  <p><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></p>
-                </div>
-              </div>
-              <div class="contact-info-item">
-                <div class="ci-icon">📞</div>
-                <div>
-                  <h4>Phone / WhatsApp</h4>
-                  <!-- REPLACE with your actual number -->
-                  <p><a href="tel:+910000000000">+91 83604 17703</a></p>
-                </div>
-              </div>
-              <div class="contact-info-item">
-                <div class="ci-icon">📍</div>
-                <div>
-                  <h4>Location</h4>
-                  <!-- REPLACE with your actual address -->
-                  <p>Sector 22, Near PGI Road<br>Chandigarh, Punjab, India</p>
-                </div>
-              </div>
-            </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Availability -->
-            <div class="availability-box">
-              <h4>Availability</h4>
-              <!-- REPLACE with your actual hours -->
-              <div class="avail-row"><span>Monday – Friday</span><span>10:00 am – 6:00 pm</span></div>
-              <div class="avail-row"><span>Saturday</span><span>10:00 am – 2:00 pm</span></div>
-              <div class="avail-row"><span>Sunday</span><span>Closed</span></div>
-              <div class="avail-row"><span>Online sessions</span><span>Available</span></div>
-            </div>
-          </div>
-
+  <!-- ===================== CALENDLY PLACEHOLDER ===================== -->
+  <section class="section section-alt" aria-labelledby="booking-heading">
+    <div class="container" style="max-width:760px;">
+      <div style="text-align:center; margin-bottom:36px;">
+        <span class="section-label reveal">Online booking</span>
+        <h2 class="section-title reveal reveal-delay-1" id="booking-heading">Book a time online</h2>
+        <p class="section-subtitle reveal reveal-delay-1" style="max-width:500px; margin:0 auto;">
+          Prefer to book a time yourself? Once set up, the online calendar will appear here allowing you to choose your preferred slot instantly.
+        </p>
+      </div>
+      <div class="calendly-placeholder reveal">
+        <div class="cal-icon" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Online Calendar Coming Soon</h3>
+        <p>To activate online booking, embed a Calendly widget by replacing this section with the Calendly inline embed code.</p>
+        <p>You can also book directly by calling <a href="tel:+918360417703" style="color:var(--sage); font-weight:600;">+91 83604 17703</a> or emailing <a href="mailto:lyf.inspirational@gmail.com" style="color:var(--sage); font-weight:600;">lyf.inspirational@gmail.com</a>.</p>
+        <div class="setup-note">
+          <strong>Setup note:</strong> Create a free account at <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" style="color:var(--sage);">calendly.com</a>, then replace this placeholder with:<br>
+          <code>&lt;div class="calendly-inline-widget" data-url="https://calendly.com/YOUR-USERNAME" style="min-width:320px;height:650px;"&gt;&lt;/div&gt;</code><br>
+          and add the Calendly script tag.
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== REASSURANCE STRIP ===================== -->
-  <section class="section section-alt" style="padding: 48px 0;">
+  <section class="section" aria-label="Why contact us">
     <div class="container">
-      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px; text-align:center;">
-        <div class="reveal">
-          <div style="font-size:2rem; margin-bottom:10px;">🔒</div>
-          <h4 style="margin-bottom:6px;">Strictly Confidential</h4>
-          <p style="font-size:0.88rem; color:var(--muted);">Everything shared in sessions is kept completely confidential in line with professional ethics.</p>
+      <div class="reassurance-grid">
+        <div class="reassurance-item reveal">
+          <div class="r-icon-wrap sage-bg" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h4>Strictly Confidential</h4>
+          <p>Everything shared in sessions is kept completely confidential in line with professional ethics and RCI guidelines.</p>
         </div>
-        <div class="reveal reveal-delay-1">
-          <div style="font-size:2rem; margin-bottom:10px;">📅</div>
-          <h4 style="margin-bottom:6px;">Flexible Scheduling</h4>
-          <p style="font-size:0.88rem; color:var(--muted);">Evening and weekend slots available. In-person and online sessions offered.</p>
+        <div class="reassurance-item reveal reveal-delay-1">
+          <div class="r-icon-wrap lav-bg" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h4>Flexible Scheduling</h4>
+          <p>Evening and Saturday slots available. Both in-person and online sessions offered to suit your family.</p>
         </div>
-        <div class="reveal reveal-delay-1">
-          <div style="font-size:2rem; margin-bottom:10px;">💬</div>
-          <h4 style="margin-bottom:6px;">Quick Response</h4>
-          <p style="font-size:0.88rem; color:var(--muted);">I aim to respond to all enquiries within one business day.</p>
+        <div class="reassurance-item reveal reveal-delay-1">
+          <div class="r-icon-wrap gold-bg" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h4>Quick Response</h4>
+          <p>I aim to respond to all enquiries within one business day. Your concerns will always be heard.</p>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ===================== CTA BANNER ===================== -->
+  <section class="cta-banner" aria-labelledby="contact-cta-heading">
+    <h2 class="reveal" id="contact-cta-heading">Ready to take the first step?</h2>
+    <p class="reveal reveal-delay-1">Every journey starts with a single message. I'm here when you're ready.</p>
+    <a href="mailto:lyf.inspirational@gmail.com" class="btn-white reveal reveal-delay-1">Email me directly</a>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
@@ -375,7 +629,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <h3>Dr. Kiran Deep Kaur</h3>
-        <p>Child & Adolescent Psychologist specialising in special needs, ADHD, visual impairment, and intellectual disability.</p>
+        <p>Child &amp; Adolescent Psychologist specialising in ADHD, visual impairment, intellectual disability, and special needs — Chandigarh, India.</p>
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
@@ -383,21 +637,21 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact & Book</a></li>
+          <li><a href="contact.html">Contact &amp; Book</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></li>
-          <li><a href="tel:+910000000000">+91 83604 17703</a></li>
-          <li><a href="#">Chandigarh, India</a></li>
+          <li><a href="tel:+918360417703">+91 83604 17703</a></li>
+          <li><a href="contact.html">Chandigarh, India</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
-      <span>Designed with care 🌿</span>
+      <span>&#169; 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
+      <span>Designed with care</span>
     </div>
   </footer>
 

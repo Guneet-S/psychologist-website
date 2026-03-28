@@ -3,207 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Dr. Kiran Deep Kaur | Child Psychologist</title>
-  <meta name="description" content="Psychological services for children and adolescents including ADHD, visual impairment, intellectual disability, and general child therapy." />
+  <title>Services — Dr. Kiran Deep Kaur | Child &amp; Adolescent Psychologist</title>
+  <meta name="description" content="Comprehensive psychological services for children and adolescents in Chandigarh — ADHD, visual impairment, intellectual disability, and general child therapy." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ---- Services-specific styles ---- */
+    /* ===================== SERVICES PAGE STYLES ===================== */
 
-    /* Service detail cards */
+    /* --- Service Detail Sections --- */
     .service-detail {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 72px;
       align-items: center;
-      padding: 64px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-light);
     }
-    .service-detail:last-child { border-bottom: none; }
-    .service-detail.reverse .service-detail-text { order: 2; }
-    .service-detail.reverse .service-detail-visual { order: 1; }
+    .service-detail:last-of-type { border-bottom: none; }
+    .service-detail.reverse .svc-detail-text { order: 2; }
+    .service-detail.reverse .svc-detail-visual { order: 1; }
 
-    .service-detail-visual {
-      border-radius: 20px;
+    .svc-detail-visual {
+      border-radius: 24px;
       overflow: hidden;
-      aspect-ratio: 4/3;
-      background: var(--green-light);
+      aspect-ratio: 4 / 3;
+      background: var(--sage-light);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 12px 40px rgba(74,124,89,0.12);
     }
-    .service-detail-visual img {
+    .svc-detail-visual img {
       width: 100%; height: 100%;
       object-fit: cover;
+      display: block;
     }
-    .service-detail-visual .placeholder-visual {
-      font-size: 5rem;
-      opacity: 0.5;
+    .svc-visual-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage-mid);
+      opacity: 0.6;
     }
 
-    .service-tag {
+    .svc-tag {
       display: inline-block;
-      background: var(--green-light);
-      color: #2E4A35;
-      font-size: 0.78rem;
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 50px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .svc-detail-text h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .svc-detail-text p {
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-size: 1rem;
     }
 
-    .service-detail h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 14px; }
-    .service-detail p  { color: var(--muted); line-height: 1.8; margin-bottom: 14px; font-size: 1rem; }
+    .who-box {
+      background: var(--lavender);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 22px 0;
+    }
+    .who-box strong {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+    }
+    .who-box p {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin: 0;
+    }
 
-    .service-includes {
-      margin: 20px 0;
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 9px;
     }
-    .service-includes li {
+    .features-list li {
       display: flex;
       gap: 10px;
       align-items: flex-start;
-      font-size: 0.93rem;
-      color: var(--text);
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.5;
     }
-    .service-includes li::before {
-      content: '✦';
-      color: #7A9E7E;
-      font-size: 0.7rem;
-      margin-top: 5px;
-      min-width: 14px;
+    .features-list li .feat-bullet {
+      color: var(--sage);
+      margin-top: 2px;
+      flex-shrink: 0;
     }
 
-    .who-is-it-for {
-      background: var(--lavender);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin: 20px 0;
-      font-size: 0.9rem;
-      color: #3A3A3A;
-    }
-    .who-is-it-for strong { color: #2E4A35; display: block; margin-bottom: 4px; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
-
-    /* Process section */
-    .process-steps {
+    /* --- Process Section --- */
+    .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      counter-reset: steps;
+      position: relative;
+    }
+    .process-connector {
+      position: absolute;
+      top: 40px;
+      left: calc(12.5% + 8px);
+      right: calc(12.5% + 8px);
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
     }
     .process-step {
       text-align: center;
-      padding: 28px 20px;
+      padding: 0 16px 28px;
       position: relative;
+      z-index: 1;
     }
-    .process-step::after {
-      content: '';
-      position: absolute;
-      top: 38px; right: -12px;
-      width: 24px; height: 2px;
-      background: var(--border);
-    }
-    .process-step:last-child::after { display: none; }
-    .step-number {
+    .step-num {
       width: 52px; height: 52px;
-      background: var(--green);
-      color: white;
+      background: var(--sage);
+      color: #fff;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Lora', serif;
       font-size: 1.3rem;
       font-weight: 700;
-      margin: 0 auto 16px;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 16px rgba(74,124,89,0.3);
     }
-    .process-step h4 { font-size: 1rem; margin-bottom: 8px; }
-    .process-step p  { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+    .process-step h4 {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
 
-    /* FAQ */
-    .faq-list { max-width: 720px; margin: 0 auto; }
+    /* --- FAQ Accordion --- */
+    .faq-list {
+      max-width: 740px;
+      margin: 0 auto;
+    }
     .faq-item {
       border-bottom: 1px solid var(--border);
     }
-    .faq-question {
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-btn {
       width: 100%;
       background: none;
       border: none;
       text-align: left;
-      padding: 20px 0;
+      padding: 22px 4px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #2E4A35;
       gap: 16px;
+      cursor: pointer;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      min-height: 44px;
+      transition: color 0.2s;
     }
-    .faq-question .faq-icon {
-      min-width: 24px; height: 24px;
-      background: var(--green-light);
+    .faq-btn:focus-visible {
+      outline: 3px solid var(--sage);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .faq-btn:hover { color: var(--sage-dark); }
+    .faq-btn[aria-expanded="true"] { color: var(--sage); }
+    .faq-icon-wrap {
+      width: 28px; height: 28px; min-width: 28px;
+      background: var(--sage-light);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      font-family: 'Lato', sans-serif;
-      color: #2E4A35;
-      transition: 0.3s ease;
+      color: var(--sage-dark);
+      transition: background 0.25s, transform 0.25s;
     }
-    .faq-question.open .faq-icon { background: var(--green); color: white; transform: rotate(45deg); }
+    .faq-btn[aria-expanded="true"] .faq-icon-wrap {
+      background: var(--sage);
+      color: #fff;
+      transform: rotate(45deg);
+    }
     .faq-answer {
-      display: none;
-      padding: 0 0 20px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 4px;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+      padding: 0 4px 22px;
+    }
+    .faq-answer p {
       font-size: 0.95rem;
-      color: var(--muted);
+      color: var(--text-body);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* --- CTA Banner --- */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--sage-deep) 0%, var(--sage-dark) 60%, #2E5C3E 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      color: #fff;
+      font-size: clamp(1.85rem, 3vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 36px;
       line-height: 1.7;
     }
-    .faq-answer.open { display: block; }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: #fff;
+      color: var(--sage-deep);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      min-height: 44px;
+    }
+    .btn-white:hover { background: var(--sage-pale); transform: translateY(-2px); }
 
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-
-    @media (max-width: 900px) {
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      .process-step::after { display: none; }
+    /* --- Responsive --- */
+    @media (max-width: 960px) {
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-connector { display: none; }
     }
     @media (max-width: 768px) {
       .service-detail,
-      .service-detail.reverse .service-detail-text,
-      .service-detail.reverse .service-detail-visual {
+      .service-detail.reverse .svc-detail-text,
+      .service-detail.reverse .svc-detail-visual {
         grid-template-columns: 1fr;
         order: unset;
       }
-      .service-detail { grid-template-columns: 1fr; gap: 32px; }
-      .process-steps { grid-template-columns: 1fr; }
+      .service-detail { grid-template-columns: 1fr; gap: 36px; padding: 48px 0; }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-delay-1, .reveal-delay-2 {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .faq-answer { transition: none; }
     }
   </style>
 </head>
 <body>
 
   <!-- ===================== NAVBAR ===================== -->
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         Dr. Kiran Deep Kaur
-        <span>Child & Adolescent Psychologist</span>
+        <span>Child &amp; Adolescent Psychologist</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" role="list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
         <li><a href="contact.html" class="btn btn-primary">Book a Session</a></li>
       </ul>
     </div>
@@ -212,240 +312,323 @@
   <!-- ===================== PAGE HERO ===================== -->
   <div class="page-hero">
     <div class="container">
-      <span class="section-label">What I offer</span>
-      <h1>Services tailored to every child</h1>
-      <p>Specialised psychological support for children, adolescents, and families.</p>
+      <span class="section-label">Our services</span>
+      <h1>Comprehensive psychological care</h1>
+      <p class="section-subtitle">Specialised support for children, adolescents, and families — tailored to every individual need.</p>
     </div>
   </div>
 
   <!-- ===================== SERVICE DETAILS ===================== -->
-  <section class="section">
+  <section class="section" aria-label="Service descriptions">
     <div class="container">
 
       <!-- Service 1: Child & Adolescent Psychology -->
-      <div class="service-detail reveal">
-        <div class="service-detail-text">
-          <span class="service-tag">Core Service</span>
-          <h2>Child & Adolescent Psychology</h2>
-          <p>
-            I offer comprehensive psychological support for children aged 4 to 18 years and teenagers facing emotional, social, or behavioural difficulties. My approach is always tailored to the individual child's age, personality, and specific needs.
-          </p>
-          <p>
-            Whether your child is struggling with anxiety, low self-esteem, school difficulties, friendship problems, or emotional regulation, I can help them develop the skills and confidence to navigate life more effectively.
-          </p>
-          <div class="who-is-it-for">
+      <div class="service-detail reveal" id="child-psychology">
+        <div class="svc-detail-text">
+          <span class="svc-tag">Core Service</span>
+          <h2>Child &amp; Adolescent Psychology</h2>
+          <p>I offer comprehensive psychological support for children aged 4 to 18 years facing emotional, social, or behavioural difficulties. My approach is always tailored to the individual child's age, personality, and specific needs.</p>
+          <p>Whether your child is struggling with anxiety, low self-esteem, school difficulties, friendship problems, or emotional regulation, I can help them develop the skills and confidence to navigate life more effectively.</p>
+          <div class="who-box">
             <strong>Who is this for?</strong>
-            Children and teenagers aged 4–18 experiencing anxiety, depression, low self-esteem, school refusal, emotional outbursts, social difficulties, grief, or general wellbeing concerns.
+            <p>Children and teenagers aged 4–18 experiencing anxiety, depression, low self-esteem, school refusal, emotional outbursts, social difficulties, grief, or general wellbeing concerns.</p>
           </div>
-          <ul class="service-includes">
-            <li>Initial assessment and detailed case formulation</li>
-            <li>Individual therapy sessions (50 minutes)</li>
-            <li>Cognitive Behavioural Therapy (CBT)</li>
-            <li>Play therapy for younger children</li>
-            <li>Parent consultation and coaching</li>
-            <li>School liaison (with consent)</li>
+          <ul class="features-list" aria-label="Service features">
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Initial assessment and detailed case formulation
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Individual therapy sessions (50 minutes)
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Cognitive Behavioural Therapy (CBT)
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Play therapy for younger children
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Parent consultation and coaching
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              School liaison (with consent)
+            </li>
           </ul>
           <a href="contact.html" class="btn btn-primary">Book this service</a>
         </div>
-        <div class="service-detail-visual">
-          <!-- REPLACE with a relevant image, e.g. images/service-child.jpg -->
-          <img src="images/service-child.jpg" alt="Child therapy session"
-               onerror="this.src='https://placehold.co/600x450/EEF4EE/2E4A35?text=Child+%26+Adolescent+Psychology'" />
+        <div class="svc-detail-visual">
+          <img
+            src="images/service-child.jpg"
+            alt="Child psychology session — a child and therapist in a calm room"
+            onerror="this.src='https://placehold.co/600x450/EAF3EC/2A4A38?text=Child+%26+Adolescent+Psychology'"
+          />
         </div>
       </div>
 
       <!-- Service 2: Visual Impairment -->
-      <div class="service-detail reverse reveal">
-        <div class="service-detail-text">
-          <span class="service-tag">Special Needs</span>
+      <div class="service-detail reverse reveal" id="visual-impairment">
+        <div class="svc-detail-text">
+          <span class="svc-tag">Special Needs</span>
           <h2>Support for Visually Impaired Children</h2>
-          <p>
-            Children with visual impairments face unique psychological challenges — from developing independence and confidence to navigating social situations and managing any associated frustration or grief. I provide specialised psychological support that acknowledges and celebrates the whole child.
-          </p>
-          <p>
-            My work in this area is adapted to be fully accessible, using tactile, auditory, and other sensory modalities to engage each child meaningfully in therapy.
-          </p>
-          <div class="who-is-it-for">
+          <p>Children with visual impairments face unique psychological challenges — from developing independence and confidence to navigating social situations and managing associated frustration or grief. I provide specialised support that celebrates the whole child.</p>
+          <p>My work is adapted to be fully accessible, using tactile, auditory, and other sensory modalities to engage each child meaningfully in therapy. My Special B.Ed qualification in Visual Impairment ensures genuinely informed practice.</p>
+          <div class="who-box">
             <strong>Who is this for?</strong>
-            Children with partial or complete visual impairment, including those with congenital or acquired vision loss, and their families.
+            <p>Children with partial or complete visual impairment, including those with congenital or acquired vision loss, and their families.</p>
           </div>
-          <ul class="service-includes">
-            <li>Psychological assessment adapted for visual impairment</li>
-            <li>Emotional support and resilience building</li>
-            <li>Self-concept and identity development</li>
-            <li>Anxiety management strategies</li>
-            <li>Parent and caregiver guidance</li>
-            <li>Collaboration with vision specialists and teachers</li>
+          <ul class="features-list" aria-label="Service features">
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Psychological assessment adapted for visual impairment
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Emotional support and resilience building
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Self-concept and identity development
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Anxiety management strategies
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Parent and caregiver guidance
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Collaboration with vision specialists and teachers
+            </li>
           </ul>
           <a href="contact.html" class="btn btn-primary">Book this service</a>
         </div>
-        <div class="service-detail-visual">
-          <img src="images/service-visual.jpg" alt="Support for visually impaired children"
-               onerror="this.src='https://placehold.co/600x450/E8E4F2/2E4A35?text=Visual+Impairment+Support'" />
+        <div class="svc-detail-visual">
+          <img
+            src="images/service-visual.jpg"
+            alt="Support for visually impaired children"
+            onerror="this.src='https://placehold.co/600x450/EDE9F7/2A4A38?text=Visual+Impairment+Support'"
+          />
         </div>
       </div>
 
       <!-- Service 3: ADHD -->
-      <div class="service-detail reveal">
-        <div class="service-detail-text">
-          <span class="service-tag">Special Needs</span>
-          <h2>ADHD Assessment & Support</h2>
-          <p>
-            Attention Deficit Hyperactivity Disorder affects many children and can have a significant impact on learning, relationships, and self-esteem. I offer comprehensive ADHD assessments and evidence-based therapeutic support for children and their families.
-          </p>
-          <p>
-            I work closely with parents to develop practical strategies for home and school environments, and can provide detailed reports to support access to accommodations.
-          </p>
-          <div class="who-is-it-for">
+      <div class="service-detail reveal" id="adhd">
+        <div class="svc-detail-text">
+          <span class="svc-tag">Special Needs</span>
+          <h2>ADHD Assessment &amp; Support</h2>
+          <p>Attention Deficit Hyperactivity Disorder affects many children and can significantly impact learning, relationships, and self-esteem. I offer comprehensive ADHD assessments and evidence-based therapeutic support for children and their families.</p>
+          <p>I work closely with parents to develop practical strategies for home and school environments, and provide detailed reports to support access to accommodations and appropriate educational placements.</p>
+          <div class="who-box">
             <strong>Who is this for?</strong>
-            Children showing signs of inattention, hyperactivity, or impulsivity; children already diagnosed with ADHD who need therapeutic support; parents seeking clarity and strategies.
+            <p>Children showing signs of inattention, hyperactivity, or impulsivity; children already diagnosed with ADHD who need therapeutic support; parents seeking clarity and practical strategies.</p>
           </div>
-          <ul class="service-includes">
-            <li>Comprehensive ADHD assessment (multi-session)</li>
-            <li>Detailed written report with recommendations</li>
-            <li>Behavioural intervention planning</li>
-            <li>Executive function skills coaching</li>
-            <li>Parent training and behavioural strategies</li>
-            <li>School consultation and IEP support</li>
+          <ul class="features-list" aria-label="Service features">
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Comprehensive ADHD assessment (multi-session)
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Detailed written report with recommendations
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Behavioural intervention planning
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Executive function skills coaching
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Parent training and behavioural strategies
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              School consultation and IEP support
+            </li>
           </ul>
           <a href="contact.html" class="btn btn-primary">Book this service</a>
         </div>
-        <div class="service-detail-visual">
-          <img src="images/service-adhd.jpg" alt="ADHD support for children"
-               onerror="this.src='https://placehold.co/600x450/EEF4EE/2E4A35?text=ADHD+Assessment+%26+Support'" />
+        <div class="svc-detail-visual">
+          <img
+            src="images/service-adhd.jpg"
+            alt="ADHD support for children"
+            onerror="this.src='https://placehold.co/600x450/EAF3EC/2A4A38?text=ADHD+Assessment+%26+Support'"
+          />
         </div>
       </div>
 
       <!-- Service 4: Intellectual Disability -->
-      <div class="service-detail reverse reveal">
-        <div class="service-detail-text">
-          <span class="service-tag">Special Needs</span>
+      <div class="service-detail reverse reveal" id="intellectual-disability">
+        <div class="svc-detail-text">
+          <span class="svc-tag">Special Needs</span>
           <h2>Intellectual Disability Support</h2>
-          <p>
-            Children with intellectual disabilities deserve high-quality psychological support that respects their individuality and maximises their potential. I provide assessments and therapy using adapted, accessible approaches that meet each child where they are.
-          </p>
-          <p>
-            My work is always strengths-based — I focus on what children can do and help families build on those foundations.
-          </p>
-          <div class="who-is-it-for">
+          <p>Children with intellectual disabilities deserve high-quality psychological support that respects their individuality and maximises their potential. I provide assessments and therapy using adapted, accessible approaches that meet each child where they are.</p>
+          <p>My work is always strengths-based — I focus on what children can do and help families build on those foundations. I work collaboratively with schools and other specialists to provide coordinated, wraparound support.</p>
+          <div class="who-box">
             <strong>Who is this for?</strong>
-            Children with mild to moderate intellectual disabilities, developmental delays, or those awaiting or following a formal diagnosis.
+            <p>Children with mild to moderate intellectual disabilities, developmental delays, or those awaiting or following a formal diagnosis.</p>
           </div>
-          <ul class="service-includes">
-            <li>Psychoeducational and adaptive functioning assessment</li>
-            <li>Adapted therapy using visual aids and simplified language</li>
-            <li>Emotional regulation and social skills support</li>
-            <li>Behaviour management planning</li>
-            <li>Family support and caregiver training</li>
-            <li>Transition planning (school to adulthood)</li>
+          <ul class="features-list" aria-label="Service features">
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Psychoeducational and adaptive functioning assessment
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Adapted therapy using visual aids and simplified language
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Emotional regulation and social skills support
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Behaviour management planning
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Family support and caregiver training
+            </li>
+            <li>
+              <svg class="feat-bullet" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Transition planning (school to adulthood)
+            </li>
           </ul>
           <a href="contact.html" class="btn btn-primary">Book this service</a>
         </div>
-        <div class="service-detail-visual">
-          <img src="images/service-id.jpg" alt="Intellectual disability support"
-               onerror="this.src='https://placehold.co/600x450/E8E4F2/2E4A35?text=Intellectual+Disability+Support'" />
+        <div class="svc-detail-visual">
+          <img
+            src="images/service-id.jpg"
+            alt="Intellectual disability support for children"
+            onerror="this.src='https://placehold.co/600x450/EDE9F7/2A4A38?text=Intellectual+Disability+Support'"
+          />
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section section-alt">
+  <!-- ===================== 4-STEP PROCESS ===================== -->
+  <section class="section section-alt" aria-labelledby="process-heading">
     <div class="container">
-      <div style="text-align:center; margin-bottom:48px;">
+      <div style="text-align:center; margin-bottom:56px;">
         <span class="section-label reveal">The process</span>
-        <h2 class="section-title reveal reveal-delay-1">What to expect</h2>
-        <p class="section-subtitle reveal reveal-delay-2" style="margin:0 auto;">A simple, supportive journey from first contact to ongoing care.</p>
+        <h2 class="section-title reveal reveal-delay-1" id="process-heading">What to expect</h2>
+        <p class="section-subtitle reveal reveal-delay-2" style="max-width:520px; margin:0 auto;">A simple, supportive journey from first contact to ongoing care.</p>
       </div>
-      <div class="process-steps">
-        <div class="process-step reveal">
-          <div class="step-number">1</div>
-          <h4>Free Consultation</h4>
-          <p>A 20-minute call to discuss your child's needs and see if we're the right fit.</p>
+      <div class="process-grid" role="list">
+        <div class="process-connector" aria-hidden="true"></div>
+        <div class="process-step reveal" role="listitem">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h4>Referral</h4>
+          <p>Contact me by phone, email, or the online form. A brief initial call to understand your child's needs.</p>
         </div>
-        <div class="process-step reveal reveal-delay-1">
-          <div class="step-number">2</div>
-          <h4>Initial Assessment</h4>
-          <p>A thorough assessment of your child's strengths, challenges, and goals.</p>
+        <div class="process-step reveal reveal-delay-1" role="listitem">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h4>Assessment</h4>
+          <p>A thorough assessment of your child's strengths, challenges, developmental history, and goals.</p>
         </div>
-        <div class="process-step reveal reveal-delay-2">
-          <div class="step-number">3</div>
+        <div class="process-step reveal reveal-delay-1" role="listitem">
+          <div class="step-num" aria-hidden="true">3</div>
           <h4>Personalised Plan</h4>
-          <p>A tailored therapy or support plan developed together with you and your child.</p>
+          <p>A tailored therapy or support plan developed collaboratively with you and, where appropriate, your child.</p>
         </div>
-        <div class="process-step reveal reveal-delay-3">
-          <div class="step-number">4</div>
+        <div class="process-step reveal reveal-delay-2" role="listitem">
+          <div class="step-num" aria-hidden="true">4</div>
           <h4>Ongoing Support</h4>
-          <p>Regular sessions with progress reviews to ensure the approach is working.</p>
+          <p>Regular sessions with progress reviews and adjustments to ensure the approach is working well.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FAQ ===================== -->
-  <section class="section">
+  <!-- ===================== FAQ ACCORDION ===================== -->
+  <section class="section" aria-labelledby="faq-heading">
     <div class="container">
-      <div style="text-align:center; margin-bottom:48px;">
+      <div style="text-align:center; margin-bottom:52px;">
         <span class="section-label reveal">FAQs</span>
-        <h2 class="section-title reveal reveal-delay-1">Frequently asked questions</h2>
+        <h2 class="section-title reveal reveal-delay-1" id="faq-heading">Frequently asked questions</h2>
       </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">
-            How long does therapy usually take?
-            <span class="faq-icon">+</span>
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">
+            What ages do you work with?
+            <span class="faq-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
-            This varies greatly depending on the child and the nature of their difficulties. Some children benefit from a short course of 8–12 sessions; others may benefit from longer-term support. We will review progress regularly and adjust the plan accordingly.
+          <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
+            <p>I work with children and adolescents aged 4 to 18 years. I also work with parents and caregivers independently, providing guidance and coaching to support their child's wellbeing at home and school.</p>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Will I be involved in my child's sessions?
-            <span class="faq-icon">+</span>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">
+            What happens in the first session?
+            <span class="faq-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
-            Yes — parent involvement is a key part of effective child therapy. I hold regular parent consultations to keep you informed and to coach you in strategies to use at home. The level of direct involvement in sessions depends on the child's age and preferences.
+          <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
+            <p>The first session is primarily an intake and assessment session. I meet with parents or caregivers (and the child, where appropriate) to gather background information, understand your concerns, and begin building a picture of your child's strengths and difficulties. I use this to formulate an initial plan.</p>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            Do you offer online / telehealth sessions?
-            <span class="faq-icon">+</span>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">
+            How long does therapy usually last?
+            <span class="faq-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
-            Yes, I offer online sessions for families who are unable to attend in person, or who prefer the convenience of telehealth. Please note that some assessment types may need to be conducted in person.
+          <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
+            <p>This varies greatly depending on the child and the nature of their difficulties. Some children benefit from a short course of 8–12 sessions; others may benefit from longer-term support. I review progress regularly and adjust the plan together with you to ensure the approach is working.</p>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            What are your fees?
-            <span class="faq-icon">+</span>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">
+            What should I bring to the first appointment?
+            <span class="faq-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
-            <!-- REPLACE with your actual fee information -->
-            Please contact me directly for current fee information. I aim to be transparent about all costs and will discuss fees with you during the free initial consultation.
+          <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
+            <p>It helps to bring any previous assessment reports, school reports, or medical records that may be relevant. Most importantly, bring your observations — you know your child best. There is no need to prepare anything formal; we will guide you through the process at every step.</p>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            What age groups do you work with?
-            <span class="faq-icon">+</span>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-answer-5" id="faq-btn-5">
+            Do you offer online sessions?
+            <span class="faq-icon-wrap" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
           </button>
-          <div class="faq-answer">
-            I work with children and adolescents aged 4 to 18 years. I also work with parents and caregivers independently, providing guidance and coaching to support their child's wellbeing.
+          <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
+            <p>Yes, I offer online sessions via video call for families who are unable to attend in person, or who prefer the convenience of telehealth. Please note that some types of assessment may need to be conducted in person to ensure accuracy and appropriate standardisation.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===================== CTA ===================== -->
-  <section style="background: linear-gradient(135deg,#2E4A35,#3d6145); padding:72px 24px; text-align:center; color:white;">
-    <h2 style="color:white; font-size:clamp(1.8rem,3vw,2.2rem); margin-bottom:14px;" class="reveal">Not sure which service is right?</h2>
-    <p style="color:rgba(255,255,255,0.8); max-width:500px; margin:0 auto 32px;" class="reveal reveal-delay-1">Book a free 20-minute consultation and we can figure it out together.</p>
-    <a href="contact.html" class="btn btn-primary reveal reveal-delay-2" style="background:white; color:#2E4A35;">Book a Free Consultation</a>
+  <!-- ===================== CTA BANNER ===================== -->
+  <section class="cta-banner" aria-labelledby="services-cta-heading">
+    <h2 class="reveal" id="services-cta-heading">Not sure which service is right?</h2>
+    <p class="reveal reveal-delay-1">Book a free 20-minute consultation and we can figure it out together.</p>
+    <a href="contact.html" class="btn-white reveal reveal-delay-2">Book a Free Consultation</a>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
@@ -453,7 +636,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <h3>Dr. Kiran Deep Kaur</h3>
-        <p>Child & Adolescent Psychologist specialising in special needs, ADHD, visual impairment, and intellectual disability.</p>
+        <p>Child &amp; Adolescent Psychologist specialising in ADHD, visual impairment, intellectual disability, and special needs — Chandigarh, India.</p>
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
@@ -461,42 +644,51 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact & Book</a></li>
+          <li><a href="contact.html">Contact &amp; Book</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:lyf.inspirational@gmail.com">lyf.inspirational@gmail.com</a></li>
-          <li><a href="tel:+910000000000">+91 83604 17703</a></li>
-          <li><a href="#">Chandigarh, India</a></li>
+          <li><a href="tel:+918360417703">+91 83604 17703</a></li>
+          <li><a href="contact.html">Chandigarh, India</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
-      <span>Designed with care 🌿</span>
+      <span>&#169; 2026 Dr. Kiran Deep Kaur. All rights reserved.</span>
+      <span>Designed with care</span>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
   <script>
-    /* FAQ accordion */
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isOpen = btn.classList.contains('open');
-        /* Close all */
-        document.querySelectorAll('.faq-question').forEach(b => {
-          b.classList.remove('open');
-          b.nextElementSibling.classList.remove('open');
+    /* ===================== FAQ ACCORDION ===================== */
+    (function () {
+      var btns = document.querySelectorAll('.faq-btn');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var isOpen = btn.getAttribute('aria-expanded') === 'true';
+          var answerId = btn.getAttribute('aria-controls');
+          var answer = document.getElementById(answerId);
+
+          /* Close all */
+          btns.forEach(function (b) {
+            b.setAttribute('aria-expanded', 'false');
+            var aId = b.getAttribute('aria-controls');
+            var a = document.getElementById(aId);
+            if (a) a.classList.remove('open');
+          });
+
+          /* Toggle clicked */
+          if (!isOpen) {
+            btn.setAttribute('aria-expanded', 'true');
+            if (answer) answer.classList.add('open');
+          }
         });
-        /* Open clicked if it was closed */
-        if (!isOpen) {
-          btn.classList.add('open');
-          btn.nextElementSibling.classList.add('open');
-        }
       });
-    });
+    })();
   </script>
 </body>
 </html>
